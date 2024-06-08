@@ -2,7 +2,7 @@ from django.db import models
 from users.models import CustomUser
 
 
-class PatientProfile(models.Model):
+class Patient(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):

@@ -2,23 +2,22 @@ from django.db import models
 from users.models import CustomUser
 
 
-class DoctorProfile(models.Model):
+class Doctor(models.Model):
     SPECIALIZATION_CHOICES = [
-        ('allgemeinmedizin ', 'Allgemeinmedizin'),
-        ('innere medizin', 'Innere Medizin'),
-        ('chirurgie', 'Chirurgie'),
-        ('anästhesiologie','Anästhesiologie'),
-        ('gynäkologie','Gynäkologie'),
-        ('pädiatrie','Pädiatrie'),
-        ('psychatrie','Psychatrie'),
-        ('radiologie','Radiologie'),
+        ('Allgemeinmedizin ', 'Allgemeinmedizin'),
+        ('Innere Medizin', 'Innere Medizin'),
+        ('Chirurgie', 'Chirurgie'),
+        ('Anästhesiologie','Anästhesiologie'),
+        ('Gynäkologie','Gynäkologie'),
+        ('Pädiatrie','Pädiatrie'),
+        ('Psychatrie','Psychatrie'),
+        ('Radiologie','Radiologie'),
     ]
 
     TITLE_CHOICES = [
-        ('dr', 'Dr.med.'),
-        ('prof', 'Prof. Dr.med.'),
-        ('pd', 'PD Dr.med.'),
-        # Weitere Titel hier hinzufügen
+        ('Dr.med.', 'Dr.med.'),
+        ('Prof. Dr.med.', 'Prof. Dr.med.'),
+        ('PD Dr.med.', 'PD Dr.med.'),
     ]
 
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
