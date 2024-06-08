@@ -31,8 +31,17 @@ class AppointmentDestroyAPIView(generics.DestroyAPIView):
     """
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
+    permission_classes = [IsAuthenticated]
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
+    def get_object(self):
+        obj = super().get_object()
+        user = self.request.user
+        if obj.doctor.user == user or (obj.patient and obj.patient.user == user):
+            return obj
+        else:
+            self.permission_denied(
+                self.request, message="You do not have permission to delete this appointment."
+            )
+
+    def perform_destroy(self, instance):
         instance.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
