@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Patient
-from users.models import CustomUser
 
 
 class PatientSerializer(serializers.ModelSerializer):

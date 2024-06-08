@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import PatientListAPIView, PatientDestroyAPIView
+from .views import PatientDestroyAPIView, PatientListCreateAPIView
 
 
 urlpatterns = [
-    path('api/patients/', PatientListAPIView.as_view(), name='patient-list'),
+    path('api/patients/', PatientListCreateAPIView.as_view(), name='patient-list-create'),
     path('api/patients/<int:pk>/', PatientDestroyAPIView.as_view(), name='patient-destroy'),
 ]
