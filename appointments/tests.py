@@ -8,8 +8,9 @@ from .models import Appointment
 
 CustomUser = get_user_model()
 
+
 class AppointmentAPITests(TestCase):
-    
+
     def setUp(self):
         self.user_patient = CustomUser.objects.create_user(username='patient', password='password123')
         self.user_doctor = CustomUser.objects.create_user(username='doctor', password='password123')
