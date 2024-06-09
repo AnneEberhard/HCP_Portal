@@ -83,3 +83,6 @@ http://127.0.0.1:8000/api/appointments/
 If you want to test different user_ids, user logout first:
 http://127.0.0.1:8000/logout/
 (add X-CRSF-Token from login)
+
+To run in-built tests:
+python manage.py test
