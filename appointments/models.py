@@ -10,7 +10,7 @@ class Appointment(models.Model):
     date = models.DateTimeField()
     created_at = models.DateTimeField(default=timezone.now)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    patient = models.ForeignKey(Patient, on_delete=models.SET_NULL, blank=True, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.title} - {self.doctor.user.get_full_name()} - {self.date}"
