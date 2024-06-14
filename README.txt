@@ -3,7 +3,7 @@ THis is only a backend, no frontend implemented. Testing needs to be done via po
 To prepare the application:
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuper
+python manage.py createsuperuser
 (follow the prompts in the terminal)
 
 To start the application:
